@@ -1,8 +1,16 @@
 <template>
   <div>
     <div class="header">
-      <go-previous></go-previous>
-      <label style="margin: auto 10px;font-weight: 500;">车辆详情</label>
+      <el-row>
+        <el-col :span="2">
+          <go-previous></go-previous>
+        </el-col>
+        <el-col :span="10">
+          <div style="padding-top: 6px;">车辆详情</div>
+        </el-col>
+      </el-row>
+      <!-- <go-previous></go-previous>
+      <label style="margin: auto 10px;font-weight: 500;">车辆详情</label> -->
     </div>
     <div class="div-header">
       <el-row class="text-center head-footer">
