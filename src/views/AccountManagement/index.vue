@@ -19,18 +19,18 @@
         <el-button :loading="loading" type="primary" @click="onSubmit" size="medium">退出登录</el-button>
       </el-form-item>
     </el-form>
-    <user-edit :openDialog.sync="isOpen"></user-edit>
+    <account-edit :openDialog.sync="isOpen"></account-edit>
     <div class="footer">
-      <note></note>
+      <foot></foot>
     </div>
   </div>
 </template>
 
 <script>
-import userEdit from './components/userEdit';
+import accountEdit from './components/accountEdit';
 
 export default {
-  name: 'MyHome',
+  name: 'AccountManagement',
   data() {
     return {
       loading: false,
@@ -58,7 +58,7 @@ export default {
     },
   },
   components: {
-    userEdit,
+    accountEdit,
   },
 };
 </script>
@@ -72,7 +72,7 @@ export default {
 .footer {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 40px;
   bottom: 0;
 }
 </style>

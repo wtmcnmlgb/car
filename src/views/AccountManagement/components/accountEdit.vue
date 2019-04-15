@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'userEdit',
+  name: 'accountEdit',
   props: {
     openDialog: {
       type: Boolean,

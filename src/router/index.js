@@ -4,8 +4,8 @@ import Router from 'vue-router';
 Vue.use(Router);
 
 const login = (r) => require.ensure([], () => r(require('@views/login')), 'login');
-const HomePage = (r) => require.ensure([], () => r(require('@views/HomePage')), 'HomePage');
-const MyHome = (r) => require.ensure([], () => r(require('@views/MyHome')), 'MyHome');
+const VehicleManagementHomePage = (r) => require.ensure([], () => r(require('@views/VehicleManagementHomePage')), 'VehicleManagementHomePage');
+const AccountManagement = (r) => require.ensure([], () => r(require('@views/AccountManagement')), 'AccountManagement');
 const RestVehicleManagement = (r) => require.ensure([], () => r(require('@views/RestVehicleManagement')), 'RestVehicleManagement');
 const TaskVehicleManagement = (r) => require.ensure([], () => r(require('@views/TaskVehicleManagement')), 'TaskVehicleManagement');
 const VechicleDetails = (r) => require.ensure([], () => r(require('@views/VechicleDetails')), 'VechicleDetails');
@@ -26,14 +26,14 @@ export default new Router({
       component: login,
     },
     {
-      path: '/home_page',
+      path: '/vehicle_management_home_page',
       name: '首页',
-      component: HomePage,
+      component: VehicleManagementHomePage,
     },
     {
-      path: '/my_home',
+      path: '/account_management',
       name: '我的',
-      component: MyHome,
+      component: AccountManagement,
     },
     {
       path: '/rest_vehicle_management',

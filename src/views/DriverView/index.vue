@@ -20,7 +20,7 @@
       </el-form>
     </div>
     <div class="footer">
-      <note></note>
+      <foot></foot>
     </div>
   </div>
 </template>
@@ -54,7 +54,7 @@ export default {
 .footer {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 40px;
   bottom: 0;
 }
 </style>

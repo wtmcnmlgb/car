@@ -1,16 +1,11 @@
 <template>
   <div class="text-center">
-    <el-header style="padding: 10px;" height="100">
+    <el-header style="padding: 1px;" height="150">
       <div>
-        <img src="../../assets/imgs/9.jpg" alt="微信" width="100%" height="80">
+        <img src="../../assets/imgs/car.jpg" alt="微信" width="100%" height="150">
       </div>
     </el-header>
     <el-main>
-      <div>
-        <el-input size="small" placeholder="请输入车牌号">
-          <el-button slot="append" icon="el-icon-search"></el-button>
-        </el-input>
-      </div>
       <el-row>
         <el-col :span="8">
           <div class="products" style="border-color: #1296DB;">
@@ -24,22 +19,22 @@
         </el-col>
         <el-col :span="8">
           <div class="products" style="border-color: #1296DB;">
-            <div class="product-img">
+            <el-row>
               <h4>休息车辆</h4>
-            </div>
-            <div class="product-total">
+            </el-row>
+            <el-row>
               <label>{{payform.amount}}</label>
-            </div>
+            </el-row>
           </div>
         </el-col>
         <el-col :span="8">
           <div class="products" style="border-color: #1296DB;">
-            <div class="product-img">
+            <el-row>
               <h4>任务车辆</h4>
-            </div>
-            <div class="product-total">
+            </el-row>
+            <el-row>
               <label>{{payform.amount}}</label>
-            </div>
+            </el-row>
           </div>
         </el-col>
       </el-row>
@@ -55,26 +50,16 @@
           </el-button>
         </div>
       </div>
-      <!-- <div class="product" style="border-color: #40c9c6;">
-        <el-button style="width: 100%;height: 100%;">
-          <h3>休息车辆管理<h3 class="el-icon-arrow-right" style="padding-left: 10px;"></h3></h3>
-        </el-button>
-      </div>
-      <div class="product" style="border-color: #40c9c6;">
-        <el-button type="text" style="width: 100%;height: 100%;">
-          <h3>任务车辆管理<h3 class="el-icon-arrow-right" style="padding-left: 10px;"></h3></h3>
-        </el-button>
-      </div> -->
     </el-main>
     <div class="footer">
-      <note></note>
+      <foot></foot>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HomePage',
+  name: 'VehicleManagementHomePage',
   data() {
     return {
       payform: {
@@ -104,7 +89,7 @@ export default {
   width: 80px;
   height: 80px;
   margin: 30px auto 0 auto;
-  padding: 10px;
+  padding: 5px;
   border-style: solid;
   border-width: 1px;
   border-radius: 15px;
@@ -128,7 +113,7 @@ h3 {
 .footer {
   position: absolute;
   width: 100%;
-  height: 50px;
+  height: 40px;
   bottom: 0;
 }
 </style>

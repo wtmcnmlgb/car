@@ -31,7 +31,7 @@ export default {
   methods: {
     submit() {
       this.$router.push({
-        path: '/home_page',
+        path: '/vehicle_management_home_page',
       });
     },
   },

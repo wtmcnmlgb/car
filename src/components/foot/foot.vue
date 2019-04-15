@@ -1,12 +1,4 @@
 <template>
-  <!-- <div class="note">
-    <div class="box">
-      <el-button size="medium" type="text">首页</el-button>
-    </div>
-    <div class="box">
-      <el-button size="medium" type="text">我的</el-button>
-    </div>
-  </div> -->
   <div class="btnBox" >
     <span class="btn" v-for="(item,index) in msg" :key="index" :class="{ isActive:isChange === item}" @click="isChoose(index,item)">{{item.name}}</span>
   </div>
@@ -14,7 +6,7 @@
 
 <script>
 export default {
-  name: 'note',
+  name: 'foot',
   data() {
     return {
       msg: [{
@@ -32,11 +24,11 @@ export default {
       console.log('index', index);
       if (index === 0) {
         this.$router.push({
-          path: '/home_page',
+          path: '/vehicle_management_home_page',
         });
       } else if (index === 1) {
         this.$router.push({
-          path: '/my_home',
+          path: '/account_management',
         });
       }
       if (index !== this.isChange) {
@@ -51,14 +43,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-// .box{
-//   float:left;
-//   width:50%;
-//   border:1px solid black;
-//   box-sizing:border-box;
-//   -moz-box-sizing:border-box; /* Firefox */
-//   -webkit-box-sizing:border-box; /* Safari */
-// }
 *{
   padding: 0;
   margin: 0;
