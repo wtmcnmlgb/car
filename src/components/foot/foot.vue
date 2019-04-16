@@ -1,6 +1,6 @@
 <template>
   <div class="btnBox" >
-    <span class="btn" v-for="(item,index) in msg" :key="index" :class="{ isActive:isChange === index}" @click="isChoose(index,item)">{{item.name}}</span>
+    <span class="btn" v-for="(item,index) in msg" :key="index" :class="{ isActive:change === item.id}" @click="isChoose(index,item)">{{item.name}}</span>
   </div>
 </template>
 
@@ -9,20 +9,20 @@ export default {
   name: 'foot',
   props: {
     isChange: {
-      type: String,
-      required: true,
+      type: Number,
+      default: 0,
     },
   },
   data() {
     return {
       msg: [{
         name: '首页',
-        id: 1,
+        id: 0,
       }, {
         name: '我的',
-        id: 2,
+        id: 1,
       }],
-      // isChange: this.isChange,
+      change: this.isChange,
     };
   },
   methods: {
@@ -37,8 +37,8 @@ export default {
           path: '/account_management',
         });
       }
-      if (index !== this.isChange) {
-        this.isChange = index;
+      if (index !== this.change) {
+        this.change = index;
         // this.isChange = 1;
       } else {
         // this.isChange = 0;

@@ -20,7 +20,7 @@
       </el-form>
     </div>
     <div class="footer">
-      <foot :isChange="0"></foot>
+      <foot :isChange="isChange"></foot>
     </div>
   </div>
 </template>
@@ -35,6 +35,7 @@ export default {
         next: '广州市新塘聚散中心',
         stand: '广州大学城',
       },
+      isChange: 0,
     };
   },
 };

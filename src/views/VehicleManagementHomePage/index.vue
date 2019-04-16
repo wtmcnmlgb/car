@@ -52,7 +52,7 @@
       </div>
     </el-main>
     <div class="footer">
-      <foot :isChange="0"></foot>
+      <foot :isChange="isChange"></foot>
     </div>
   </div>
 </template>
@@ -65,6 +65,7 @@ export default {
       payform: {
         amount: 12,
       },
+      isChange: 0,
     };
   },
   methods: {

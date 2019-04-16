@@ -21,7 +21,7 @@
     </el-form>
     <account-edit :openDialog.sync="isOpen"></account-edit>
     <div class="footer">
-      <foot :isChange="1"></foot>
+      <foot :isChange="isChange"></foot>
     </div>
   </div>
 </template>
@@ -39,6 +39,7 @@ export default {
         phone: '1234564',
       },
       isOpen: false,
+      isChange: 1,
     };
   },
   methods: {

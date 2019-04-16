@@ -19,7 +19,7 @@
     </el-form>
     <user-edit :openDialog.sync="isOpen"></user-edit>
     <div class="footer">
-      <foot :isChange="1"></foot>
+      <foot :isChange="isChange"></foot>
     </div>
   </div>
 </template>
@@ -37,6 +37,7 @@ export default {
         phone: '88888888',
       },
       isOpen: false,
+      isChange: 1,
     };
   },
   methods: {
