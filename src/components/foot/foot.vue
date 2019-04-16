@@ -1,12 +1,18 @@
 <template>
   <div class="btnBox" >
-    <span class="btn" v-for="(item,index) in msg" :key="index" :class="{ isActive:isChange === item}" @click="isChoose(index,item)">{{item.name}}</span>
+    <span class="btn" v-for="(item,index) in msg" :key="index" :class="{ isActive:isChange === index}" @click="isChoose(index,item)">{{item.name}}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'foot',
+  props: {
+    isChange: {
+      type: String,
+      required: true,
+    },
+  },
   data() {
     return {
       msg: [{
@@ -16,7 +22,7 @@ export default {
         name: '我的',
         id: 2,
       }],
-      isChange: 1,
+      // isChange: this.isChange,
     };
   },
   methods: {
@@ -33,9 +39,9 @@ export default {
       }
       if (index !== this.isChange) {
         this.isChange = index;
-        this.isChange = 1;
+        // this.isChange = 1;
       } else {
-        this.isChange = 0;
+        // this.isChange = 0;
       }
     },
   },

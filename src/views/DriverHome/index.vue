@@ -19,7 +19,7 @@
     </el-form>
     <user-edit :openDialog.sync="isOpen"></user-edit>
     <div class="footer">
-      <foot></foot>
+      <foot :isChange="1"></foot>
     </div>
   </div>
 </template>
