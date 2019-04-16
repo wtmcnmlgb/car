@@ -9,8 +9,6 @@
           <div style="padding-top: 6px;">任务车辆管理</div>
         </el-col>
       </el-row>
-      <!-- <go-previous></go-previous>
-      <label style="margin: auto 10px;font-weight: 500;">任务车辆管理</label> -->
     </div>
     <div style="padding: 10px">
       <el-input size="small" placeholder="请输入车牌号">

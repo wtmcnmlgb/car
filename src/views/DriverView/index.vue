@@ -20,7 +20,7 @@
       </el-form>
     </div>
     <div class="footer">
-      <foot :isChange="isChange"></foot>
+      <driver-foot :isChange="isChange"></driver-foot>
     </div>
   </div>
 </template>

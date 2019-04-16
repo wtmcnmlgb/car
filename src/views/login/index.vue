@@ -1,6 +1,5 @@
 <template>
   <el-row class="login">
-    <!-- <div class="login-head-bg"></div> -->
     <h3 class="text-center">车辆管理</h3>
     <el-form :model="form" :rules="formRules" ref="form" label-width="80px">
       <el-form-item label="账号" prop="account">
@@ -25,13 +24,55 @@ export default {
         account: '',
         password: '',
       },
-      formRules: {},
     };
+  },
+  computed: {
+    formRules() {
+      return {
+        account: [
+          { required: true, message: '请输入账号', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+        ],
+      };
+    },
   },
   methods: {
     submit() {
-      this.$router.push({
-        path: '/vehicle_management_home_page',
+      this.$refs.form.validate(valid => {
+        if (valid) {
+          if (this.form.account === 'admin' && this.form.password === '123456') {
+            this.$message.success({
+              showClose: true,
+              message: '登录成功!',
+              type: 'success',
+              duration: 800,
+            });
+            this.$router.push({
+              path: '/vehicle_management_home_page',
+            });
+          } else if (this.form.account === '粤A 123456' && this.form.password === '123456') {
+            this.$message.success({
+              showClose: true,
+              message: '登录成功!',
+              type: 'success',
+              duration: 800,
+            });
+            this.$router.push({
+              path: '/driver_view',
+            });
+          } else {
+            this.$message.error({
+              showClose: true,
+              message: '账号或密码错误',
+              type: 'error',
+              duration: 800,
+            });
+          }
+        } else {
+          return false;
+        }
       });
     },
   },

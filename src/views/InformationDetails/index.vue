@@ -9,8 +9,6 @@
           <div style="padding-top: 6px;">车辆详情</div>
         </el-col>
       </el-row>
-      <!-- <go-previous></go-previous>
-      <label style="margin: auto 10px;font-weight: 500;">车辆详情</label> -->
     </div>
     <div class="div-header">
       <el-row class="text-center head-footer">

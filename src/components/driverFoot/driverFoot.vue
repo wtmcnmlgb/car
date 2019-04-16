@@ -6,7 +6,7 @@
 
 <script>
 export default {
-  name: 'foot',
+  name: 'driverFoot',
   props: {
     isChange: {
       type: Number,
@@ -30,11 +30,11 @@ export default {
       console.log('index', index);
       if (index === 0) {
         this.$router.push({
-          path: '/vehicle_management_home_page',
+          path: '/driver_view',
         });
       } else if (index === 1) {
         this.$router.push({
-          path: '/account_management',
+          path: '/driver_home',
         });
       }
       if (index !== this.change) {
