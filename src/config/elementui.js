@@ -44,9 +44,19 @@ import {
   CollapseItem,
   Transfer,
   Spinner,
-  Header,
-  Main,
-  Footer,
+  Card,
+  Progress,
+  Tooltip,
+  Radio,
+  TimePicker,
+  Cascader,
+  RadioGroup,
+  Steps,
+  Step,
+  Slider,
+  Rate,
+  InputNumber,
+  Popover,
 } from 'element-ui';
 
 // element ui 加载
@@ -90,9 +100,19 @@ Vue.use(Badge);
 Vue.use(Collapse);
 Vue.use(CollapseItem);
 Vue.use(Transfer);
-Vue.use(Header);
-Vue.use(Main);
-Vue.use(Footer);
+Vue.use(Card);
+Vue.use(Progress);
+Vue.use(Tooltip);
+Vue.use(Radio);
+Vue.use(TimePicker);
+Vue.use(Cascader);
+Vue.use(RadioGroup);
+Vue.use(Steps);
+Vue.use(Step);
+Vue.use(Slider);
+Vue.use(Rate);
+Vue.use(InputNumber);
+Vue.use(Popover);
 
 Vue.use(Loading.directive);
 
