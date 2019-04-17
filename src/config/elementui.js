@@ -57,6 +57,8 @@ import {
   Rate,
   InputNumber,
   Popover,
+  Header,
+  Main,
 } from 'element-ui';
 
 // element ui 加载
@@ -113,6 +115,8 @@ Vue.use(Slider);
 Vue.use(Rate);
 Vue.use(InputNumber);
 Vue.use(Popover);
+Vue.use(Header);
+Vue.use(Main);
 
 Vue.use(Loading.directive);
 
