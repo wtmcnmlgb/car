@@ -5,23 +5,24 @@
     </div>
     <div class="div-header">
       <el-row class="text-center">
-        <el-col :span="20" class="col-pad">
+        <el-col :span="16" class="col-pad">
           <label>{{formData.name}}</label>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8" style="text-align: right;">
           <el-button type="text">语音通话</el-button>
         </el-col>
       </el-row>
-      <el-row class="text-center head-footer">
-        <el-col :span="20" class="col-pad">
+      <!-- 任务车辆 -->
+      <el-row class="text-center head-footer" v-if="formData.type === '行驶中'">
+        <el-col :span="16" class="col-pad">
           <label>{{formData.type}}</label>
         </el-col>
-        <el-col :span="4">
+        <el-col :span="8" style="text-align: right;">
           <el-button type="text" @click="modify">修改状态</el-button>
         </el-col>
       </el-row>
-
-      <el-row>
+      <!-- 休息车辆 -->
+      <el-row class="text-center head-footer" v-if="formData.type === '休息中'">
         <el-col :span="16" class="col-pad">
           <label>{{formData.type}}</label>
         </el-col>
@@ -32,17 +33,28 @@
       </el-row>
     </div>
     <div class="div-header">
-      <el-row>
-        <el-col :span="5" class="col-pad">上一站：</el-col>
-        <el-col :span="16" class="col-pad">{{formData.stand}}</el-col>
-      </el-row>
-      <el-row>
-        <el-col :span="5" class="col-pad">下一站：</el-col>
-        <el-col :span="14" class="col-pad">{{formData.next}}</el-col>
-        <el-col :span="5">
-          <el-button :loading="loading" type="text" @click="reached">已到达</el-button>
-        </el-col>
-      </el-row>
+      <!-- 任务车辆 -->
+      <div v-if="formData.type === '行驶中'">
+        <el-row>
+          <el-col :span="5" class="col-pad">上一站：</el-col>
+          <el-col :span="16" class="col-pad">{{formData.stand}}</el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="5" class="col-pad">下一站：</el-col>
+          <el-col :span="14" class="col-pad">{{formData.next}}</el-col>
+          <el-col :span="5">
+            <el-button :loading="loading" type="text" @click="reached">已到达</el-button>
+          </el-col>
+        </el-row>
+      </div>
+      <!-- 休息车辆 -->
+      <div v-if="formData.type === '休息中'">
+        <el-form>
+          <el-form-item label="休息原因：">{{takeData.reason}}</el-form-item>
+          <el-form-item label="开始休息时间：">{{takeData.star_time}}</el-form-item>
+          <el-form-item label="预计任务时间：">{{takeData.end_time}}</el-form-item>
+        </el-form>
+      </div>
     </div>
     <div class="footer">
       <driver-foot :isChange="isChange"></driver-foot>
@@ -67,10 +79,16 @@ export default {
         name: '粤A 123456',
         next: '广州市新塘聚散中心',
         stand: '广州大学城',
-        type: '行驶中',
+        // type: '行驶中',
+        type: '休息中',
       },
       isChange: 0,
       dialogOpen: false,
+      takeData: {
+        reason: '车检',
+        star_time: '2019/03/05 12:00:00',
+        end_time: '2019/05/05 12:00:00',
+      },
     };
   },
   watch: {
@@ -97,7 +115,13 @@ export default {
     modify() {
       this.dialogOpen = true;
     },
-    complete() {},
+    complete() {
+      this.$confirm('确认结束休息状态？').then(() => {
+        this.$message.success('成功结束休息！');
+      }).catch(() => {
+        this.$message.warning('取消结束休息！');
+      });
+    },
     amend() {
       this.isOpenType = true;
     },
