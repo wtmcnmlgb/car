@@ -25,7 +25,7 @@
         <el-col :span="16" class="col-pad">
           <label>{{formData.type}}</label>
         </el-col>
-        <el-col :span="8" class="col-pad">
+        <el-col :span="8" class="col-pad" style="text-align: right;">
           <el-button size="small" @click="complete">完成</el-button>
           <el-button size="small" @click="amend">修改</el-button>
         </el-col>
@@ -48,31 +48,14 @@
       <driver-foot :isChange="isChange"></driver-foot>
     </div>
 
-    <state-information :openDialog.sync="isOpenType"></state-information>
-
-    <el-dialog title="修改行车状态" :visible.sync="dialogOpen" custom-class="small">
-      <!-- <el-radio v-model="radio" :label="1">
-        任务状态
-        <el-radio-group v-model="sun">
-          <el-radio :label="1">行驶中</el-radio>
-          <el-radio :label="2">休息中</el-radio>
-        </el-radio-group>
-      </el-radio>
-      <el-radio v-model="radio" :label="2">休息状态</el-radio> -->
-      <el-radio-group v-model="adminRole">
-        <el-radio v-for="item in adminRoles" :key="item.id" :label="item.id">{{item.name}}</el-radio>
-      </el-radio-group>
-
-      <div slot="footer" class="level-center">
-        <el-button size="small" type="primary" @click="submit">确认</el-button>
-        <el-button size="small" @click="cancel">取消</el-button>
-      </div>
-    </el-dialog>
+    <state-information :openDialog.sync="isOpenType" @refresh="getTableData"></state-information>
+    <while-travel :openDialog.sync="dialogOpen"></while-travel>
   </div>
 </template>
 
 <script>
 import StateInformation from './components/StateInformation';
+import WhileTravel from './components/WhileTravel';
 
 export default {
   name: 'DriverView',
@@ -88,16 +71,6 @@ export default {
       },
       isChange: 0,
       dialogOpen: false,
-      adminRole: '',
-      adminRoles: [{
-        id: 1,
-        name: '任务状态',
-      }, {
-        id: 2,
-        name: '休息状态',
-      }],
-      // radio: 1,
-      // sun: 1,
     };
   },
   watch: {
@@ -108,6 +81,9 @@ export default {
     },
   },
   methods: {
+    getTableData() {
+      console.log('dada');
+    },
     reached() {
       this.loading = true;
       this.$confirm('确认已到达？').then(() => {
@@ -121,12 +97,6 @@ export default {
     modify() {
       this.dialogOpen = true;
     },
-    submit() {
-      console.log(this.adminRole);
-    },
-    cancel() {
-      this.dialogOpen = false;
-    },
     complete() {},
     amend() {
       this.isOpenType = true;
@@ -134,6 +104,7 @@ export default {
   },
   components: {
     StateInformation,
+    WhileTravel,
   },
 };
 </script>
